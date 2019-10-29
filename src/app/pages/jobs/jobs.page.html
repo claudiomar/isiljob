@@ -1,0 +1,43 @@
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-title>Bolsa de trabajo</ion-title>
+  </ion-toolbar>
+
+  
+  <ion-segment scrollable mode="md" color="primary">
+    <ion-segment-button mode="md"
+                        *ngFor="let area of areasList"
+                        [value]="area.val">
+      <ion-label text-capitalize>{{ area.name }}</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-header>
+
+<ion-content fullscreen>
+  <!-- <app-trabajos [trabajos]="trabajos"></app-trabajos> -->
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12"
+        *ngFor="let publication of publicationsJobs; let i = index">
+        <ion-card (click)="jobInfoModal(publication.id)">
+          <ion-card-header>
+            <ion-card-subtitle>
+              <span class="text-primary">{{ i + 1 }} </span>
+              <span class="source_name">{{ publication.userName ? '': publication.userRSocial }}</span>
+  
+            </ion-card-subtitle>
+            <ion-card-title class="ion-text-left">{{ publication.name }}</ion-card-title>
+          </ion-card-header>
+          
+          <ion-img src="{{ publication.imgUser }}" style="height:100%; width: 100%;"></ion-img>
+          
+          
+          <ion-card-content>
+            <p>{{ publication.requirements }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

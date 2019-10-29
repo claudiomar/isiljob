@@ -1,0 +1,28 @@
+<app-header titulo="Alumnos"></app-header>
+<ion-content fullscreen>
+    <ion-grid fixed>
+        <ion-row>
+          <ion-col size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12"
+            *ngFor="let folder of folders; let i = index">
+            <ion-card>
+              <ion-card-header>
+                <ion-card-subtitle>
+                  <span class="text-primary">{{ i + 1 }} </span>
+                  <span class="source_name">{{ folder.name }}</span>
+      
+                </ion-card-subtitle>
+                <ion-card-title class="ion-text-left">{{ folder.description }}</ion-card-title>
+              </ion-card-header>
+              
+              <!--
+              <ion-img src="{{trabajo.users[0].image_company}}" style="height: 160px; width: 100%;"></ion-img>
+              -->
+              
+              <ion-card-content>
+                <p>{{ folder.languages }}</p>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+</ion-content>

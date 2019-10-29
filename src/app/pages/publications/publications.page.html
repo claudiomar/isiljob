@@ -1,0 +1,55 @@
+<!-- <app-header titulo="Publicaciones"></app-header> -->
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+
+      <ion-buttons slot="primary">
+          <ion-button  color="light" (click)="newpubInfoModal()">
+            <ion-icon slot="end" name="add"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+      <ion-title>Publicaciones</ion-title>
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content fullscreen>
+
+  <ion-list #lista>
+
+    <ion-list-header>
+      Publicaciones Habilitadas
+    </ion-list-header>
+    
+    <ion-item-sliding *ngFor="let publication of publications; let index = index">
+
+      <ion-item *ngIf="publication.uid === uid " lines="inset" (click)="pubInfoModal(publication.id)">
+        <ion-avatar slot="start" *ngIf="publication.uid === uid">
+          <img src="../../../assets/shapes.svg">
+        </ion-avatar>
+        <ion-label *ngIf="publication.uid === uid">
+          
+          <h2>{{ publication.name }}</h2>
+          <p>{{ publication.description }}</p>
+          <!-- <ion-chip *ngFor="let chip of folder.languages" color="primary">
+            <ion-label>{{ chip }}</ion-label>
+          </ion-chip> -->
+      
+        </ion-label>
+    </ion-item>
+
+    <ion-item-options side="start">
+        <ion-item-option color="danger" (click)="removePublication(publication.id)">
+            <ion-icon slot="icon-only" ios="ios-trash" md="md-trash"></ion-icon>
+        </ion-item-option>
+    </ion-item-options>
+    </ion-item-sliding>
+    
+
+
+
+  </ion-list>
+
+</ion-content>

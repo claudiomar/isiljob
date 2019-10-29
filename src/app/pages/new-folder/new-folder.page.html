@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>newFolder</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+ <ion-list lines="full">
+  <ion-item>
+    <ion-input required type="text" placeholder="name" [(ngModel)]="folder.name">
+    </ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-input required type="text" placeholder="description" [(ngModel)]="folder.description">
+      </ion-input>
+    </ion-item>
+ </ion-list>
+ <ion-button expand="full" (click)="saveFolder()">Guardar</ion-button>
+</ion-content>

@@ -1,0 +1,60 @@
+<ion-content fullscreen>
+    <img src="../../../assets/contacto.png" style="max-width: 100vw !important; max-height: 100vh !important;">  
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Contacto</ion-card-subtitle>
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Teléfono celular</ion-label>
+            <ion-input [(ngModel)]="contact.telcelular"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Teléfono fijo</ion-label>
+            <ion-input [(ngModel)]="contact.telfijo"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input [(ngModel)]="contact.email"></ion-input>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Calle</ion-label>
+            <ion-input [(ngModel)]="contact.calle"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()">
+        <ion-icon slot="start" name="arrow-round-back"></ion-icon>
+        <ion-label>Regresar</ion-label>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="guardarContacto()">
+        <ion-label>Guardar Contacto</ion-label>
+        <!-- <ion-icon slot="end" ios="ios-star" md="md-star"></ion-icon>-->
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-footer>

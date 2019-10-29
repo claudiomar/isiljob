@@ -1,0 +1,122 @@
+<app-header titulo="Publicación"></app-header>
+
+<ion-content fullscreen>
+
+    <ion-card>
+        <ion-list lines="full">
+
+            <ion-list-header>
+              <ion-label>Datos básicos(*)</ion-label>
+            </ion-list-header>
+      
+            <ion-item *ngIf="publication">
+              <ion-input required type="text" placeholder="Titulo de la publicación" [(ngModel)]="publication.name">
+              </ion-input>
+            </ion-item>
+      
+            <ion-item *ngIf="publication">
+              <ion-input required type="text" placeholder="Descripción del puesto" [(ngModel)]="publication.description">
+              </ion-input>
+            </ion-item>
+      
+            <ion-list-header>
+              <ion-label>Requerimientos(*)</ion-label>
+            </ion-list-header>
+      
+            <ion-item *ngIf="publication">
+                  <ion-input required type="text" placeholder="Requerimientos"  [(ngModel)]="publication.requirements">
+                  </ion-input>
+             </ion-item>
+          
+             <ion-list-header>
+                  <ion-label>Beneficios(*)</ion-label>
+                </ion-list-header>
+      
+             <ion-item *ngIf="publication">
+                  <ion-input required type="text" placeholder="Beneficios" [(ngModel)]="publication.benefits">
+                  </ion-input>
+             </ion-item>
+      
+      
+             <ion-select (ionChange)="checkValue($event)"  interface="popover" 
+                    placeholder="Tipo de Empleo" >
+                    <ion-select-option *ngFor="let item of typePub" [value]="item"> 
+                      - {{ item.name }} -
+                    </ion-select-option>
+              </ion-select>
+      
+          
+            <!-- 
+            <ion-list-header>
+                <ion-label>Frameworks utilizados</ion-label>
+            </ion-list-header>
+      
+            <ion-item *ngIf="folder">
+                <ion-input required type="text" placeholder="Frameworks" [(ngModel)]="folder.frameworks">
+                </ion-input>
+              </ion-item>
+            
+            <ion-list-header>
+              <ion-label>Lenguajes utilizados</ion-label>
+            </ion-list-header>
+      
+            <ion-item>
+              <ion-chip *ngFor="let chip of folder.languages" color="primary">
+                <ion-label>{{ chip }}</ion-label>
+                <ion-icon name="close"></ion-icon>
+               </ion-chip>
+            </ion-item>
+      
+            <ion-item>
+                <ion-label>...Freelance?</ion-label>
+                <ion-checkbox color="secondary" [(ngModel)]="folder.freelance" ></ion-checkbox>
+      
+            </ion-item>
+          -->
+      
+          </ion-list>
+    </ion-card>
+
+   
+    <!--
+    <div class="box">
+        <div class="preview">
+          <img [src]="url" alt="">
+        </div>
+        <div class="uploadbtn">
+          <label>
+            <input (change)="uploadImage($event)" type="file" class="image-upload" accept="image/*">
+          </label>
+        </div>
+    </div>
+     -->
+
+    <ion-button expand="full" color="primary" (click)="savePublication()">Guardar Publiación</ion-button>
+
+    <!-- 
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="danger">
+      <ion-fab-button color="danger" routerLink="tabs/folder" routerDirection="forward" (click)="onRemove(folderId)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+-->
+  <!-- 
+    <ion-fab vertical="bottom" horizontal="start" slot="fixed" color="primary">
+        <ion-fab-button color="primary" routerLink="tabs/folder" routerDirection="forward" (click)="regresar()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    -->
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-button (click)="regresar()">
+        <ion-icon slot="start" name="arrow-round-back"></ion-icon>
+        <ion-label>Regresar</ion-label>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-footer>

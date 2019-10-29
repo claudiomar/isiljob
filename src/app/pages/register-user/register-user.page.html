@@ -1,0 +1,66 @@
+<app-header titulo="Registro de Usuarios"></app-header>
+<ion-content padding>
+  
+  <form #form="ngForm" (ngSubmit)="registerUserFirebase()">
+
+    <ion-grid>
+      <ion-row color="danger" justify-content-center>
+        <ion-col align-self-center size-md="12" size-lg="5" size-xs="12">
+         
+          <div padding>
+
+            <ion-select (ionChange)="checkValue($event)"  interface="popover" 
+              placeholder="Tipo de Usuario" >
+              <ion-select-option *ngFor="let item of typesUsers" [value]="item"> 
+               {{ item.val }} - {{ item.name }}
+              </ion-select-option>
+            </ion-select>
+
+            <!-- Nombre -->
+            <ion-item *ngIf="usuario.type === 1 || usuario.type === 3">
+              <ion-input name="name" type="text" placeholder="Nombre" [(ngModel)]="usuario.name" required></ion-input>
+            </ion-item>
+
+            <!-- Razon Social -->
+            <ion-item *ngIf="usuario.type === 2">
+                <ion-input name="rsocial" type="text" placeholder="Razon social" [(ngModel)]="usuario.rsocial" required></ion-input>
+            </ion-item>
+
+            <!-- DNI -->
+            <ion-item *ngIf="usuario.type === 1 || usuario.type === 3">
+                <ion-input name="name" type="text" placeholder="DNI" [(ngModel)]="usuario.document" required></ion-input>
+            </ion-item>
+            
+            <!-- RUC -->
+            <ion-item *ngIf="usuario.type === 2">
+                <ion-input name="ruc" type="text" placeholder="RUC" [(ngModel)]="usuario.ruc" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input name="email" type="text" placeholder="Correo" [(ngModel)]="usuario.email" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input name="password" type="password" placeholder="Contraseña" [(ngModel)]="usuario.password" required></ion-input>
+            </ion-item>
+
+            <div class="box">
+              <div class="preview">
+                <img [src]="url" alt="">
+            </div>
+            <div class="uploadbtn">
+                <label>
+                  <input (change)="uploadImage($event)" type="file" class="image-upload" accept="image/*">
+                </label>
+            </div>
+          </div>
+          </div>
+          <div padding>
+            <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block">Registrar</ion-button>
+          </div>
+        
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

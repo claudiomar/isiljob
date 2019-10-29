@@ -1,0 +1,143 @@
+<app-header titulo="Perfil"></app-header>
+
+<ion-content fullscreen>
+
+  <ion-grid >
+     <ion-avatar class="avatar" justify-content-center align-items-center>
+       <img src="{{ user.img }}" height="150px" />
+     </ion-avatar>
+     <ion-row>
+        <ion-col size="6">
+            <ion-label class="ion-text-center" *ngIf="user.type == 2">Razón Social:{{ user.rsocial }}</ion-label>
+        </ion-col>
+        <ion-col size="6">
+            <ion-label *ngIf="user.type == 2 ">RUC: {{user.ruc}}</ion-label>
+
+        </ion-col>
+     </ion-row>
+     <ion-row>
+        <ion-col size="6">
+            <ion-label *ngIf="user.type == 1 || user.type == 3">Nombre: {{ user.name }}</ion-label>
+          </ion-col>
+        <ion-col size="6">
+            <ion-label *ngIf="user.type == 1 || user.type == 3">Doc: {{user.document}}</ion-label>
+        </ion-col>
+     </ion-row>
+    
+  </ion-grid>
+
+  <ion-segment (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="perfil">
+      <ion-label>Mi Perfil</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="expe">
+      <ion-label>Experiencia</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="educ">
+      <ion-label>Educacion</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="segment">
+    <ion-list *ngSwitchCase="'perfil'">
+      <ion-list-header>
+        DATOS DE CONTACTO
+        <ion-buttons>
+            <ion-button (click)="modalEditarContacto(uid)">
+                <ion-icon ios="ios-create" md="md-create"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label position="stacked">Telefóno celular</ion-label>
+        <ion-input disabled="true" type="text" placeholder="Telf.celular" [(ngModel)]="contact.telcelular"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="stacked">Telefóno fijo</ion-label>
+          <ion-input disabled="true" type="text" placeholder="Telf.fijo" [(ngModel)]="contact.telfijo"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input disabled="true" type="text" placeholder="Email" [(ngModel)]="contact.email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label position="stacked">Dirección</ion-label>
+          <ion-input disabled="true" type="text" placeholder="Calle" [(ngModel)]="contact.calle"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'expe'">
+        <ion-list-header>
+          EXPERIENCIA
+          <ion-buttons>
+              <ion-button (click)="modalEditarExperiencia(uid)">
+                  <ion-icon ios="ios-create" md="md-create"></ion-icon>
+              </ion-button>
+          </ion-buttons>
+        </ion-list-header>
+        <ion-item>
+            <ion-label position="stacked">Nombre de la empresa</ion-label>
+            <ion-input disabled="true" type="text" placeholder="Nombre de la empresa" [(ngModel)]="experiencia.empresa"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Actividad de la empresa</ion-label>
+            <ion-input disabled="true" type="text" placeholder="Actividad de la empresa" [(ngModel)]="experiencia.actividadempresa"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Puesto</ion-label>
+            <ion-input disabled="true" type="text" placeholder="Puesto" [(ngModel)]="experiencia.puesto"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="stacked">Nivel de experiencia</ion-label>
+            <ion-input disabled="true" type="text" placeholder="Nivel de experiencia" [(ngModel)]="experiencia.nivelexperiencia"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="stacked">Area del puesto</ion-label>
+            <ion-input disabled="true" type="text" placeholder="Area del puesto" [(ngModel)]="experiencia.areapuesto"></ion-input>
+        </ion-item>
+
+      </ion-list>
+      <ion-list *ngSwitchCase="'educ'">
+          <ion-list-header>
+              EDUCACIÓN
+              <ion-buttons>
+                  <ion-button (click)="modalEditarEducacion(uid)">
+                      <ion-icon ios="ios-create" md="md-create"></ion-icon>
+                  </ion-button>
+              </ion-buttons>
+          </ion-list-header>
+          <ion-item>
+              <ion-label position="stacked">Tipo de estudio</ion-label>
+              <ion-input disabled="true" type="text" placeholder="Tipo de estudio" [(ngModel)]="education.tipoestudio"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label position="stacked">Estado</ion-label>
+              <ion-input disabled="true" type="text" placeholder="Estado" [(ngModel)]="education.estado"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label position="stacked">Titulo/Carrera</ion-label>
+              <ion-input disabled="true" type="text" placeholder="Titulo" [(ngModel)]="education.titulo"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label position="stacked">Area de estudio</ion-label>
+              <ion-input disabled="true" type="text" placeholder="Area de estudio" [(ngModel)]="education.area"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label position="stacked">Institución</ion-label>
+              <ion-input disabled="true" type="text" placeholder="Institución" [(ngModel)]="education.institucion"></ion-input>
+          </ion-item>
+
+        </ion-list>
+    </div>
+
+  
+
+  <ion-button size="large"  (click)="logout()" expand="block">Cerrar sesión</ion-button>
+
+</ion-content>

@@ -1,0 +1,34 @@
+ion-item{
+    --background: #00aeef;
+    --color: #fff;
+
+}
+ion-button{
+    --background: #00aeef;
+}
+
+a{
+    color: #fff;
+}
+
+form{
+    padding-top:100px !important;
+}
+
+.ion-color-login {
+    --ion-color-base: var(--ion-color-login);
+    --ion-color-base-rgb: var(--ion-color-login-rgb);
+    --ion-color-contrast: var(--ion-color-login-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-login-contrast-rgb);
+    --ion-color-shade: var(--ion-color-login-shade);
+    --ion-color-tint: var(--ion-color-login-tint);
+}
+
+.ion-color-new {
+--ion-color-base: var(--ion-color-new);
+--ion-color-base-rgb: var(--ion-color-new-rgb);
+--ion-color-contrast: var(--ion-color-new-contrast);
+--ion-color-contrast-rgb: var(--ion-color-new-contrast-rgb);
+--ion-color-shade: var(--ion-color-new-shade);
+--ion-color-tint: var(--ion-color-new-tint);
+}

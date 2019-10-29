@@ -1,0 +1,43 @@
+<app-header titulo="Portafolio"></app-header>
+
+<ion-content fullscreen>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="newFolderModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <!-- <ion-fab-list side="top">
+      <ion-fab-button><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+    </ion-fab-list> -->
+  </ion-fab>
+  
+  <ion-list #lista>
+
+    <ion-list-header>
+      Proyectos habilitados
+    </ion-list-header>
+
+    <ion-item-sliding *ngFor="let folder of folders; let index = index">
+        <ion-item *ngIf='folder.uid === uid' lines="inset" (click)="folderModalInfo(folder.id)">
+          <ion-avatar slot="start">
+            <img src="../../../assets/shapes.svg">
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ folder.name }}</h2>
+            <p>{{ folder.description }}</p>
+            <ion-chip *ngFor="let chip of folder.languages" color="primary">
+              <ion-label>{{ chip }}</ion-label>
+            </ion-chip>
+          </ion-label>
+        </ion-item>
+
+        <ion-item-options side="start">
+          <ion-item-option color="danger" (click)="eliminarFolder(folder.id)">
+              <ion-icon slot="icon-only" ios="ios-trash" md="md-trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+        
+    </ion-item-sliding>
+    
+  </ion-list>
+
+</ion-content>
